@@ -16,6 +16,6 @@ Code propre :
 - Code compréhensible sans commentaire
 - Faire des privates pour améliorer la lisibilité des publics
 - Utilisation de constantes pour les éléments dynamiques qui sont susceptibles de changer
-
+- Pas de redondance de code
 
 > Partagez vos réponses dans un fichier commun de votre dépôt
