@@ -12,7 +12,11 @@ class BankTest extends TestCase
 
     public function test_should_convert_eur_to_usd()
     {
-        $this->assertEquals(12, Bank::create(Currency::EUR(), Currency::USD(), 1.2)->convert(10, Currency::EUR(), Currency::USD()));
+        $bank = Bank::create(Currency::EUR(), Currency::USD(), 1.2);
+
+        $valueConvert =  $bank->convert(10, Currency::EUR(), Currency::USD());
+
+        $this->assertEquals(12, $valueConvert);
     }
 
     public function test_should_convert_eur_to_eur()
