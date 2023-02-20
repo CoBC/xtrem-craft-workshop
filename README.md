@@ -7,6 +7,11 @@ Review :
 	parametre $currency jamais utilisé
 	multiplication et division de types different (float int) + nom "value" pas clair
 
+- Commentaires / docs
+- Lisibilité / compréhension du code
+- Extract methode (faire des méthodes privées pour faciliter la compréhension de la public)
+
+
 # Xtrem Craft workshop
 
 This workshop is based on the [Xtrem TDD workshop](https://github.com/les-tontons-crafters/xtrem-tdd-money-kata), 
