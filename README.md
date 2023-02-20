@@ -1,7 +1,7 @@
 
 lancer les tests : php vendor/bin/phpunit
 
-Review :
+1) Review :
 
 - fonction add / times / divide (MoneyCalculator.php) :
 	parametre $currency jamais utilisé
@@ -10,6 +10,22 @@ Review :
 - Commentaires / docs
 - Lisibilité / compréhension du code
 - Extract methode (faire des méthodes privées pour faciliter la compréhension de la public)
+
+
+2)
+
+Code sale :
+- Indentation illogique
+- Mauvais nommage des variables et fonctions
+- Commentaire inutile
+- Structure de classes (Dossier / sous dossier / bonne répartition)
+
+
+Code propre :
+- Code compréhensible sans commentaire
+- Faire des privates pour améliorer la lisibilité des publics
+- Utilisation de constantes pour les éléments dynamiques qui sont susceptibles de changer
+
 
 
 # Xtrem Craft workshop
