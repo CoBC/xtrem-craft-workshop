@@ -17,8 +17,8 @@ class Bank
     }
 
     /**
-     * @param Currency $currency1
-     * @param Currency $currency2
+     * @param Currency $currency1 est la devise d'origine
+     * @param Currency $currency2 est la devise de destination
      * @param float $rate
      * @return Bank
      */
@@ -26,7 +26,6 @@ class Bank
     {
         $bank = new Bank([]);
         $bank->addEchangeRate($currency1, $currency2, $rate);
-
         return $bank;
     }
 
@@ -36,6 +35,9 @@ class Bank
      * @param float $rate
      * @return void
      */
+
+
+
     public function addEchangeRate(Currency $currency1, Currency $currency2, float $rate): void
     {
         $this->exchangeRates[($currency1 . '->' . $currency2)] = $rate;
