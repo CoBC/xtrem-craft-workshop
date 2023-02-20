@@ -19,3 +19,19 @@ Code propre :
 - Pas de redondance de code
 
 > Partagez vos réponses dans un fichier commun de votre dépôt
+
+
+Correction : 
+
+Sale : 
+- Un marécae ou on se perd
+- Code spaghetti
+- Code sans structure
+- Code dupliqué
+
+Propre :
+- Lisible
+- Elegeant 
+- Facile a modifier
+- Ecrit avec soin
+- Sans surprise

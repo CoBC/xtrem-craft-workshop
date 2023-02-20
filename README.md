@@ -28,6 +28,21 @@ Code propre :
 - Pas de redondance de code
 -Tester le code : écrire des tests unitaires pour s'assurer que le code fonctionne correctement et qu'il reste fonctionnel même après des modifications...
 
+Correction : 
+
+Sale : 
+- Un marécae ou on se perd
+- Code spaghetti
+- Code sans structure
+- Code dupliqué
+
+Propre :
+- Lisible
+- Elegeant 
+- Facile a modifier
+- Ecrit avec soin
+- Sans surprise
+
 3) 
 
 
