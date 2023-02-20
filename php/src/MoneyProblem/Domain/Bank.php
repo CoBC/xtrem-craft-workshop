@@ -55,7 +55,7 @@ class Bank
 
     public function convert(float $amount, Currency $currencySource, Currency $currencyTarget): float
     {
-        if (!$this->CurrencyExist($currencySource,$currencyTarget)) {
+        if (!$this->currencyExist($currencySource,$currencyTarget)) {
             throw new MissingExchangeRateException($currencySource, $currencyTarget);
         }
         return $currencySource == $currencyTarget
@@ -63,8 +63,9 @@ class Bank
             : $amount * $this->exchangeRates[($currencySource . '->' . $currencyTarget)];
     }
 
-    private function CurrencyExist($currencySource, $currencyTarget): bool{
 
+
+    private function currencyExist($currencySource, $currencyTarget): bool{
         return ($currencySource == $currencyTarget || array_key_exists($currencySource . '->' . $currencyTarget, $this->exchangeRates));
     }
 
