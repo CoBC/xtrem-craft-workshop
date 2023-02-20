@@ -26,6 +26,7 @@ Code propre :
 - Faire des privates pour améliorer la lisibilité des publics
 - Utilisation de constantes pour les éléments dynamiques qui sont susceptibles de changer
 - Pas de redondance de code
+-Tester le code : écrire des tests unitaires pour s'assurer que le code fonctionne correctement et qu'il reste fonctionnel même après des modifications...
 
 3) 
 
