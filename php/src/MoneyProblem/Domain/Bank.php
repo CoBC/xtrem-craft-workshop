@@ -17,30 +17,30 @@ class Bank
     }
 
     /**
-     * @param Currency $currency1 est la devise d'origine
-     * @param Currency $currency2 est la devise de destination
+     * @param Currency $currencySource est la devise d'origine
+     * @param Currency $currencyTarget est la devise de destination
      * @param float $rate
      * @return Bank
      */
-    public static function create(Currency $currency1, Currency $currency2, float $rate)
+    public static function create(Currency $currencySource, Currency $currencyTarget, float $rate)
     {
         $bank = new Bank([]);
-        $bank->addEchangeRate($currency1, $currency2, $rate);
+        $bank->addEchangeRate($currencySource, $currencyTarget, $rate);
         return $bank;
     }
 
     /**
-     * @param Currency $currency1
-     * @param Currency $currency2
+     * @param Currency $currencySource
+     * @param Currency $currencyTarget
      * @param float $rate
      * @return void
      */
 
 
 
-    public function addEchangeRate(Currency $currency1, Currency $currency2, float $rate): void
+    public function addEchangeRate(Currency $currencySource, Currency $currencyTarget, float $rate): void
     {
-        $this->exchangeRates[($currency1 . '->' . $currency2)] = $rate;
+        $this->exchangeRates[($currencySource . '->' . $currencyTarget)] = $rate;
     }
 
     /**
@@ -55,7 +55,7 @@ class Bank
 
     public function convert(float $amount, Currency $currencySource, Currency $currencyTarget): float
     {
-        if (!$this->currencyExist($currencySource,$currencyTarget)) {
+        if (!$this->currencyExist($currencySource, $currencyTarget)) {
             throw new MissingExchangeRateException($currencySource, $currencyTarget);
         }
         return $currencySource == $currencyTarget
@@ -65,8 +65,8 @@ class Bank
 
 
 
-    private function currencyExist($currencySource, $currencyTarget): bool{
+    private function currencyExist($currencySource, $currencyTarget): bool
+    {
         return ($currencySource == $currencyTarget || array_key_exists($currencySource . '->' . $currencyTarget, $this->exchangeRates));
     }
-
 }
