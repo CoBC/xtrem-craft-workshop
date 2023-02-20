@@ -1,6 +1,12 @@
 
 lancer les tests : php vendor/bin/phpunit
 
+Review :
+
+- fonction add / times / divide (MoneyCalculator.php) :
+	parametre $currency jamais utilisé
+	multiplication et division de types different (float int) + nom "value" pas clair
+
 # Xtrem Craft workshop
 
 This workshop is based on the [Xtrem TDD workshop](https://github.com/les-tontons-crafters/xtrem-tdd-money-kata), 
