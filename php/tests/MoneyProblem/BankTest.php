@@ -10,17 +10,17 @@ use PHPUnit\Framework\TestCase;
 class BankTest extends TestCase
 {
 
-    public function should_convert_eur_to_usd_returns_float()
+    public function test_should_convert_eur_to_usd()
     {
         $this->assertEquals(12, Bank::create(Currency::EUR(), Currency::USD(), 1.2)->convert(10, Currency::EUR(), Currency::USD()));
     }
 
-    public function should_convert_eur_to_eur_returns_same_value()
+    public function test_should_convert_eur_to_eur()
     {
         $this->assertEquals(10, Bank::create(Currency::EUR(), Currency::USD(), 1.2)->convert(10, Currency::EUR(), Currency::EUR()));
     }
 
-    public function should_convert_throws_exception_on_missing_exchange_rate()
+    public function test_should_convert_throws_exception_on_missing_exchange_rate()
     {
         $this->expectException(MissingExchangeRateException::class);
         $this->expectExceptionMessage('EUR->KRW');
@@ -28,7 +28,7 @@ class BankTest extends TestCase
         Bank::create(Currency::EUR(), Currency::USD(), 1.2)->convert(10, Currency::EUR(), Currency::KRW());
     }
 
-    public function should_convert_with_different_exchange_rates_returns_different_floats()
+    public function test_should_convert_with_different_exchange_rates()
     {
         $bank = Bank::create(Currency::EUR(), Currency::USD(), 1.2);
 
@@ -38,5 +38,4 @@ class BankTest extends TestCase
 
         $this->assertEquals(13, $bank->convert(10, Currency::EUR(), Currency::USD()));
     }
-
 }
