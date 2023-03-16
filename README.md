@@ -1,5 +1,5 @@
 
-lancer les tests : php vendor/bin/phpunit
+lancer les tests : (à la racine du projet php) : php vendor/bin/phpunit
 
 1) Review :
 
