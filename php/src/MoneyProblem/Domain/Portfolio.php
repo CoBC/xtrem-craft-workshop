@@ -1,4 +1,5 @@
 <?php
+
 namespace MoneyProblem\Domain;
 
 use MoneyProblem\Domain\Money;
@@ -18,14 +19,14 @@ class Portfolio
         $this->moneyList[] = $money;
     }
 
-    public function evaluate(string $currencyCode)
+    public function evaluate(Currency $currencyCode, $bank)
     {
         $total = 0;
 
         foreach ($this->moneyList as $money) {
-            $total += $money->getAmount() * $money->getCurrency()->getExchangeRate($currencyCode);
+            $total += $bank->convert($money->getAmount(), $money->getCurrency(), $currencyCode);
         }
 
-        return new Money($total, new Currency($currencyCode));
+        return new Money($total, $currencyCode);
     }
 }
