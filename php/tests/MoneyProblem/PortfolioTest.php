@@ -3,9 +3,12 @@
 namespace Tests\MoneyProblem\Domain;
 
 use MoneyProblem\Domain\Bank;
+use MoneyProblem\Domain\Money;
+use MoneyProblem\Domain\Portfolio;
 use MoneyProblem\Domain\Currency;
 use MoneyProblem\Domain\MissingExchangeRateException;
 use PHPUnit\Framework\TestCase;
+
 
 class PortfolioTest extends TestCase
 {
@@ -45,5 +48,16 @@ class PortfolioTest extends TestCase
         $bank->addEchangeRate(Currency::EUR(), Currency::USD(), 1.3);
 
         $this->assertEquals(13, $bank->convert(10, Currency::EUR(), Currency::USD()));
+    }
+
+    public function testEvaluation()
+    {
+        $portfolio = new Portfolio();
+        $portfolio->add(new Money(5, new Currency('USD')));
+        $portfolio->add(new Money(10, new Currency('EUR')));
+
+        $this->assertEquals(new Money(17, new Currency('USD')), $portfolio->evaluate('USD'));
+        $this->assertEquals(new Money(14.1, new Currency('EUR')), $portfolio->evaluate('EUR'));
+        $this->assertEquals(new Money(18940, new Currency('KRW')), $portfolio->evaluate('KRW'));
     }
 }
