@@ -1,5 +1,6 @@
 <?
-namespace Tests\MoneyProblem\Builders;
+
+namespace MoneyProblem\Domain;
 
 use MoneyProblem\Domain\Bank;
 use MoneyProblem\Domain\Currency;
