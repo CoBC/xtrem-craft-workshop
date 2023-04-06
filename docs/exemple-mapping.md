@@ -52,3 +52,9 @@ As a Bank Consumer
 I want to convert a given amount in currency into another currency
 So it can be used to evaluate client portfolios
 ```
+
+```gherkin
+Given a Bank with 2 same currency
+When I convert 10 EUR to EUR's currency
+Then the result is 10 EUR (not changed)
+```
