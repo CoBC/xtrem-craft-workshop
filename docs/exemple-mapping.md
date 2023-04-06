@@ -21,3 +21,23 @@ Then I can convert 12 USB to 10 EUR
 ```
 
 #### Round tripping
+
+
+
+
+
+#### Add an exchange rate
+```gherkin
+As a Foreign Exchange Expert
+I want to add/update exchange rates by specifying: a multiplier rate and a currency
+So they can be used to evaluate client portfolios
+```
+
+
+
+#### Convert a Money
+```gherkin
+As a Bank Consumer
+I want to convert a given amount in currency into another currency
+So it can be used to evaluate client portfolios
+```
