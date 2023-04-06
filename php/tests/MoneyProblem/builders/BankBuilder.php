@@ -1,7 +1,6 @@
 <?
 
 use MoneyProblem\Domain\Bank;
-
 use MoneyProblem\Domain\Currency;
 
 
