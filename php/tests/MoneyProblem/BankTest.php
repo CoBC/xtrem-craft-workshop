@@ -1,55 +1,55 @@
-<?php
+    <?php
 
-namespace Tests\MoneyProblem\Domain;
+    namespace Tests\MoneyProblem\Domain;
 
-use MoneyProblem\Domain\Bank;
-use MoneyProblem\Domain\Currency;
-use MoneyProblem\Domain\MissingExchangeRateException;
-use PHPUnit\Framework\TestCase;
+    use MoneyProblem\Domain\Bank;
+    use MoneyProblem\Domain\Currency;
+    use MoneyProblem\Domain\MissingExchangeRateException;
+    use PHPUnit\Framework\TestCase;
 
-class BankTest extends TestCase
-{
-
-    public function test_should_convert_eur_to_usd()
+    class BankTest extends TestCase
     {
-        $bank = Bank::create(Currency::EUR(), Currency::USD(), 1.2);
 
-        $valueConvert =  $bank->convert(10, Currency::EUR(), Currency::USD());
+        public function test_should_convert_eur_to_usd()
+        {
+            $bank = Bank::create(Currency::EUR(), Currency::USD(), 1.2);
 
-        $this->assertEquals(12, $valueConvert);
+            $valueConvert =  $bank->convert(10, Currency::EUR(), Currency::USD());
 
-        $bank = Bank::create(Currency::USD(), Currency::EUR(), 0.82);
+            $this->assertEquals(12, $valueConvert);
 
-        $valueConvert2 =  $bank->convert(12, Currency::USD(), Currency::EUR());
+            $bank = Bank::create(Currency::USD(), Currency::EUR(), 0.82);
 
-        $this->assertEquals(10, $valueConvert2);
+            $valueConvert2 =  $bank->convert(12, Currency::USD(), Currency::EUR());
+
+            $this->assertEquals(10, $valueConvert2);
+        }
+
+        public function test_should_convert_eur_to_eur()
+        {
+            $bank = Bank::create(Currency::EUR(), Currency::USD(), 1.2);
+
+            $valueConvert = $bank->convert(10, Currency::EUR(), Currency::EUR());
+
+            $this->assertEquals(10, $valueConvert);
+        }
+
+        public function test_should_convert_throws_exception_on_missing_exchange_rate()
+        {
+            $this->expectException(MissingExchangeRateException::class);
+            $this->expectExceptionMessage('EUR->KRW');
+
+            Bank::create(Currency::EUR(), Currency::USD(), 1.2)->convert(10, Currency::EUR(), Currency::KRW());
+        }
+
+        public function test_should_convert_with_different_exchange_rates()
+        {
+            $bank = Bank::create(Currency::EUR(), Currency::USD(), 1.2);
+
+            $this->assertEquals(12, $bank->convert(10, Currency::EUR(), Currency::USD()));
+
+            $bank->addEchangeRate(Currency::EUR(), Currency::USD(), 1.3);
+
+            $this->assertEquals(13, $bank->convert(10, Currency::EUR(), Currency::USD()));
+        }
     }
-
-    public function test_should_convert_eur_to_eur()
-    {
-        $bank = Bank::create(Currency::EUR(), Currency::USD(), 1.2);
-
-        $valueConvert = $bank->convert(10, Currency::EUR(), Currency::EUR());
-
-        $this->assertEquals(10, $valueConvert);
-    }
-
-    public function test_should_convert_throws_exception_on_missing_exchange_rate()
-    {
-        $this->expectException(MissingExchangeRateException::class);
-        $this->expectExceptionMessage('EUR->KRW');
-
-        Bank::create(Currency::EUR(), Currency::USD(), 1.2)->convert(10, Currency::EUR(), Currency::KRW());
-    }
-
-    public function test_should_convert_with_different_exchange_rates()
-    {
-        $bank = Bank::create(Currency::EUR(), Currency::USD(), 1.2);
-
-        $this->assertEquals(12, $bank->convert(10, Currency::EUR(), Currency::USD()));
-
-        $bank->addEchangeRate(Currency::EUR(), Currency::USD(), 1.3);
-
-        $this->assertEquals(13, $bank->convert(10, Currency::EUR(), Currency::USD()));
-    }
-}
