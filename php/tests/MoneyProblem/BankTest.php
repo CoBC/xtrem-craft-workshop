@@ -6,20 +6,21 @@ use MoneyProblem\Domain\Bank;
 use MoneyProblem\Domain\Currency;
 use MoneyProblem\Domain\MissingExchangeRateException;
 use PHPUnit\Framework\TestCase;
+use Tests\MoneyProblem\Builders\BankBuilder;
 
 class BankTest extends TestCase
 {
 
-    /*public function test_should_convert_eur_to_usd()
-        {
-            $bank = (new BankBuilder())
-                ->withExchangeRate(Currency::EUR(), Currency::USD(), 1.2)
-                ->build();
+    public function test_should_convert_eur_to_usd2()
+    {
+        $bank = (new BankBuilder())
+            ->withExchangeRate(Currency::EUR(), Currency::USD(), 1.2)
+            ->build();
 
-            $valueConvert = $bank->convert(10, Currency::EUR(), Currency::USD());
+        $valueConvert = $bank->convert(10, Currency::EUR(), Currency::USD());
 
-            $this->assertEquals(12, $valueConvert);
-        } */
+        $this->assertEquals(12, $valueConvert);
+    }
 
     public function test_should_convert_eur_to_usd()
     {
