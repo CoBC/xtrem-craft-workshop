@@ -36,18 +36,10 @@ So they can be used to evaluate client portfolios
 #### Round tripping
 
 ```gherkin
-Given a Bank with EUR as pivot currency
-When I define an exchange rate of 1.2 to USB
-Then I can convert 10 EUR to 12 USB
+Given a Bank with EUR as pivot currency 1.2 USD
+When I convert 10 EUR in $
+Then X$ = 10€
 ```
-
-```gherkin
-Given a Bank with EUR as pivot currency
-When I define an exchange rate of 1.2 to USB
-Then I can convert 12 USB to 10 EUR 
-```
-
-#### Round tripping
 
 
 
