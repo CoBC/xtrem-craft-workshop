@@ -5,3 +5,5 @@ Prendre quelques instants pour découvrir le concept de [type immuable](https://
 > Où peut-il être appliqué dans votre base de code ?
 
 Utiliser le `Test Driven Development` pour modifier l'implémentation.
+
+AddExchangeRate // AddMoney - ce qui permet de mettre de l'argent dans le portfolio
