@@ -58,3 +58,9 @@ Given a Bank with 2 same currency
 When I convert 10 EUR to EUR's currency
 Then the result is 10 EUR (not changed)
 ```
+
+```gherkin
+Given a Bank with 2 different currency
+When I convert 10 EUR to KRW's currency but this exchange doesn't exist
+Then the result is Error
+```
