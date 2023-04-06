@@ -8,20 +8,18 @@
     use PHPUnit\Framework\TestCase;
 
     class BankTest extends TestCase
-
-
     {
 
-        public function test_should_convert_eur_to_usd()
+        /*public function test_should_convert_eur_to_usd()
         {
             $bank = (new BankBuilder())
                 ->withExchangeRate(Currency::EUR(), Currency::USD(), 1.2)
                 ->build();
-    
+
             $valueConvert = $bank->convert(10, Currency::EUR(), Currency::USD());
-    
+
             $this->assertEquals(12, $valueConvert);
-        }
+        } */
 
         public function test_should_convert_eur_to_usd()
         {
