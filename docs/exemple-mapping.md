@@ -33,6 +33,25 @@ I want to add/update exchange rates by specifying: a multiplier rate and a curre
 So they can be used to evaluate client portfolios
 ```
 
+#### All exchange rates are defined from the pivot currency
+
+```gherkin
+Given a Bank with EUR as pivot currency
+When I define an exchange rate of 1.2 to USB
+Then I can convert 10 EUR to 12 USB
+```
+
+```gherkin
+Given a Bank with EUR as pivot currency
+When I define an exchange rate of 1.2 to USB
+Then I can convert 12 USB to 10 EUR 
+```
+
+#### Round tripping
+
+
+
+
 
 
 #### Convert a Money

@@ -17,6 +17,12 @@ class BankTest extends TestCase
         $valueConvert =  $bank->convert(10, Currency::EUR(), Currency::USD());
 
         $this->assertEquals(12, $valueConvert);
+
+        $bank = Bank::create(Currency::USD(), Currency::EUR(), 0.82);
+
+        $valueConvert2 =  $bank->convert(12, Currency::USD(), Currency::EUR());
+
+        $this->assertEquals(10, $valueConvert2);
     }
 
     public function test_should_convert_eur_to_eur()
