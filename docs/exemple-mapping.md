@@ -20,20 +20,20 @@ When I define an exchange rate of 1.2 to USB
 Then I can convert 12 USB to 10 EUR 
 ```
 
-#### Round tripping
 
 
 
 
 
-#### Add an exchange rate
+
+### Add an exchange rate
 ```gherkin
 As a Foreign Exchange Expert
 I want to add/update exchange rates by specifying: a multiplier rate and a currency
 So they can be used to evaluate client portfolios
 ```
 
-#### All exchange rates are defined from the pivot currency
+#### Round tripping
 
 ```gherkin
 Given a Bank with EUR as pivot currency
@@ -54,7 +54,7 @@ Then I can convert 12 USB to 10 EUR
 
 
 
-#### Convert a Money
+### Convert a Money
 ```gherkin
 As a Bank Consumer
 I want to convert a given amount in currency into another currency
